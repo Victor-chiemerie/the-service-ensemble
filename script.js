@@ -123,3 +123,17 @@ if (dateInput) {
     .slice(0, 10);
   dateInput.min = localToday;
 }
+
+let lastScrollY = window.scrollY;
+
+window.addEventListener("scroll", () => {
+  const currentScrollY = window.scrollY;
+
+  if (currentScrollY > 400 && currentScrollY < 6000) {
+    document.body.classList.add("show-floating-cta");
+  } else {
+    document.body.classList.remove("show-floating-cta");
+  }
+
+  lastScrollY = currentScrollY;
+});
