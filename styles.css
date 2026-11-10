@@ -103,8 +103,20 @@ img {
   font-family: var(--serif);
   font-size: 40px;
   letter-spacing: -0.12em;
+  display: flex;
+  align-items: baseline;
+}
+.brand-mark div {
+  display: flex;
+  align-items: center;
+}
+.brand-mark p {
   line-height: 1;
   color: var(--navy);
+  margin: 0;
+}
+.brand-mark div p:nth-of-type(2) {
+  font-size: 50px;
 }
 .brand-mark span {
   color: var(--gold-deep);
@@ -703,6 +715,9 @@ h2 em {
 .small-mark {
   font-size: 29px;
 }
+.small-mark div p:nth-of-type(2) {
+  font-size: 36.3px;
+}
 .story-image-tag > span:last-child {
   font-size: 8px;
   line-height: 1.7;
@@ -934,7 +949,7 @@ h2 em {
   gap: 45px;
   padding-bottom: 50px;
 }
-.brand-footer .brand-mark {
+.brand-footer .brand-mark p {
   color: white;
 }
 .brand-footer .brand-name {
@@ -1069,6 +1084,9 @@ h2 em {
   }
   .brand-mark {
     font-size: 35px;
+  }
+  .brand-mark div p:nth-of-type(2) {
+    font-size: 43.7px;
   }
   .brand-name {
     font-size: 8px;
