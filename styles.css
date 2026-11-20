@@ -117,12 +117,12 @@ img {
 
   background-color: var(--navy);
 
-  mask-image: url("/images/logos/logo-without-bg.png");
+  mask-image: url("./images/logos/logo-without-bg.png");
   mask-repeat: no-repeat;
   mask-position: center;
   mask-size: contain;
 
-  -webkit-mask-image: url("/images/logos/logo-without-bg.png");
+  -webkit-mask-image: url("./images/logos/logo-without-bg.png");
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-position: center;
   -webkit-mask-size: contain;
