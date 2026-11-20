@@ -31,6 +31,15 @@ body {
   max-width: 100%;
   overflow-x: clip;
 }
+.material-symbols-outlined {
+  font-variation-settings:
+    "FILL" 0,
+    "wght" 400,
+    "GRAD" 0,
+    "opsz" 20;
+
+  font-size: 11px;
+}
 html.menu-open,
 body.menu-open {
   overflow: hidden;
@@ -80,6 +89,9 @@ img {
   margin-left: 8px;
   color: var(--gold);
   white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 .site-header {
   height: 82px;
@@ -252,10 +264,6 @@ h2 em {
 }
 .button:hover {
   transform: translateY(-2px);
-}
-.button span {
-  font-size: 15px;
-  font-weight: 400;
 }
 .button-gold {
   color: var(--navy);
@@ -583,6 +591,8 @@ h2 em {
   position: relative;
   padding: 28px 28px 8px 0;
   min-height: 220px;
+  display: flex;
+  flex-direction: column;
 }
 .step-card + .step-card {
   border-left: 1px solid var(--line);
@@ -592,6 +602,11 @@ h2 em {
   font-family: var(--serif);
   color: var(--gold-deep);
   font-size: 14px;
+}
+.step-card > span:nth-child(2) {
+  font-size: 27px;
+  color: var(--gold-deep);
+  margin-top: 25px;
 }
 .step-symbol {
   font-family: var(--serif);
@@ -656,7 +671,7 @@ h2 em {
   font-family: var(--serif);
   font-size: 17px;
 }
-.occasion-arrow {
+.occasion-item .material-symbols-outlined {
   color: var(--gold-deep);
   font-size: 15px;
 }
@@ -789,6 +804,9 @@ h2 em {
   width: max-content;
   border-bottom: 1px solid var(--gold-deep);
   padding-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 .booking-form {
   background: var(--paper);
@@ -940,7 +958,7 @@ h2 em {
 .brand-footer {
   background-color: white;
 }
-*/ .footer-main > p {
+.footer-main > p {
   color: rgba(255, 255, 255, 0.58);
   font-family: var(--serif);
   font-size: 17px;
@@ -960,6 +978,11 @@ h2 em {
   letter-spacing: 0.17em;
   color: var(--gold);
   margin-bottom: 5px;
+}
+.footer-links > a {
+  display: flex;
+  align-items: center;
+  gap: 3px;
 }
 .footer-links a:hover {
   color: white;
@@ -1301,6 +1324,9 @@ h2 em {
     border-left: 0;
     border-top: 1px solid var(--line);
     padding-left: 0;
+  }
+  .step-card > span:nth-child(2) {
+    margin-top: 15px;
   }
   .step-symbol {
     margin-top: 15px;
