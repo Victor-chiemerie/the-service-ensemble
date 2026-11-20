@@ -455,23 +455,23 @@ h2 em {
 }
 .photo-hair {
   /* background-image: url("https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=85"); */
-  background-image: url("/images/service-photos/hair-styling.jpeg");
+  background-image: url("./images/service-photos/hair-styling.jpeg");
 }
 .photo-makeup {
   /* background-image: url("https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?auto=format&fit=crop&w=800&q=85"); */
-  background-image: url("/images/service-photos/make-up.jpeg");
+  background-image: url("./images/service-photos/make-up.jpeg");
 }
 .photo-gele {
   /* background-image: url("https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=85"); */
-  background-image: url("/images/service-photos/gele.jpeg");
+  background-image: url("./images/service-photos/gele.jpeg");
 }
 .photo-tailoring {
   /* background-image: url("https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=800&q=85"); */
-  background-image: url("/images/service-photos/tailoring.jpeg");
+  background-image: url("./images/service-photos/tailoring.jpeg");
 }
 .photo-shoes {
   /* background-image: url("https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=85"); */
-  background-image: url("/images/service-photos/shoe-repair.jpeg");
+  background-image: url("./images/service-photos/shoe-repair.jpeg");
 }
 .service-card-body {
   padding: 24px 23px 25px;
