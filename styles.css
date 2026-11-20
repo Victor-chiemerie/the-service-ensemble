@@ -606,7 +606,8 @@ h2 em {
 .step-card > span:nth-child(2) {
   font-size: 27px;
   color: var(--gold-deep);
-  margin-top: 25px;
+  margin-top: 30px;
+  margin-bottom: 5px;
 }
 .step-symbol {
   font-family: var(--serif);
@@ -1326,7 +1327,7 @@ h2 em {
     padding-left: 0;
   }
   .step-card > span:nth-child(2) {
-    margin-top: 15px;
+    margin-top: 20px;
   }
   .step-symbol {
     margin-top: 15px;
