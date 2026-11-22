@@ -1,6 +1,6 @@
 // IMPORTANT: Replace this placeholder with the business WhatsApp number in international format.
 // Nigeria example: 2348012345678 (no +, spaces or leading 0).
-const WHATSAPP_NUMBER = "2348130410150";
+const WHATSAPP_NUMBER = "2349070788533";
 
 const menuToggle = document.querySelector(".menu-toggle");
 const mainNav = document.querySelector(".main-nav");
