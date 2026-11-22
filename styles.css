@@ -986,6 +986,97 @@ h2 em {
   font-weight: 400;
   margin-top: 2px;
 }
+.duration-field {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+.duration-field legend {
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+.duration-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.duration-options label {
+  position: relative;
+  cursor: pointer;
+}
+.duration-options input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.duration-options label span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60px;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+.duration-options label span:hover {
+  border-color: var(--gold);
+}
+.duration-options input:checked + span {
+  background-color: var(--navy);
+  border-color: var(--navy);
+  color: white;
+  box-shadow: 0 5px 18px rgba(17, 26, 50, 0.12);
+}
+.duration-options input:focus-visible + span {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+.price-summary {
+  padding: 28px 30px;
+  background: var(--navy);
+  border: 1px solid rgba(169, 139, 92, 0.35);
+  position: relative;
+  overflow: hidden;
+}
+.price-summary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: var(--gold);
+}
+.price-summary-label {
+  display: block;
+  color: var(--gold);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+#price-display {
+  color: white;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(21px, 3.6vw, 33px);
+  font-weight: 500;
+  line-height: 1.3;
+  margin: 0;
+}
 .privacy-note {
   font-size: 9px;
   line-height: 1.7;
@@ -1054,6 +1145,18 @@ h2 em {
 .footer-links a:hover {
   color: var(--gold);
   transform: translateX(3px);
+}
+.social-links {
+  display: flex;
+  gap: 22px;
+}
+.social-links img {
+  width: 20px;
+  height: auto;
+  transition: transform 0.25s ease;
+}
+.social-links img:hover {
+  transform: scale(1.25);
 }
 .footer-bottom {
   display: flex;
@@ -1318,6 +1421,24 @@ h2 em {
   .pricing-cta {
     width: 100%;
     justify-content: space-between;
+  }
+  .duration-options {
+    gap: 10px;
+  }
+  .duration-options label span {
+    min-height: 54px;
+    padding: 15px 12px;
+    font-size: 11px;
+  }
+  .price-summary {
+    padding: 24px 22px;
+  }
+  .price-summary-label {
+    font-size: 8px;
+    letter-spacing: 0.15em;
+  }
+  #price-display {
+    font-size: 25px;
   }
   .section-heading-row h2 {
     margin-top: 17px;

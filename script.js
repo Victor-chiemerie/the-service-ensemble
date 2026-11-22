@@ -11,6 +11,25 @@ const serviceCheckboxes = [
   ...document.querySelectorAll('input[name="services"]'),
 ];
 
+const pricing = {
+  "Half Day": {
+    1: 550000,
+    2: 750000,
+    3: 950000,
+    4: 1150000,
+    5: 1350000,
+  },
+  "Full Day": {
+    1: 900000,
+    2: 1100000,
+    3: 1300000,
+    4: 1500000,
+    5: 1700000,
+  },
+};
+const priceDisplay = document.querySelector("#price-display");
+const durationOptions = document.querySelectorAll('input[name="duration"]');
+
 document.querySelector("#year").textContent = new Date().getFullYear();
 
 function closeMenu() {
@@ -36,6 +55,10 @@ document.querySelectorAll("[data-service]").forEach((link) => {
     serviceCheckboxes.forEach((box) => {
       box.checked = box.value === service;
     });
+
+    serviceHint.textContent =
+      "Great - we'll discuss availability for your selected service(s).";
+    updatePrice();
   });
 });
 
@@ -47,7 +70,14 @@ serviceCheckboxes.forEach((box) =>
     } else {
       serviceHint.textContent = "Select at least one service.";
     }
+
+    updatePrice();
   }),
+);
+
+// Duration checkbox listener
+durationOptions.forEach((option) =>
+  option.addEventListener("change", updatePrice),
 );
 
 function openWhatsApp(message) {
@@ -71,6 +101,7 @@ document
     );
   });
 
+// Form submission action
 bookingForm?.addEventListener("submit", (event) => {
   event.preventDefault();
   const formData = new FormData(bookingForm);
@@ -83,6 +114,24 @@ bookingForm?.addEventListener("submit", (event) => {
       .scrollIntoView({ behavior: "smooth", block: "center" });
     return;
   }
+
+  const durationValue = String(formData.get("duration") || "");
+  if (!durationValue) {
+    formMessage.textContent =
+      "Please select whether you need Half Day or FUll Day support.";
+    document
+      .querySelector(".duration-field")
+      .scrollIntoView({ behavior: "smooth", block: "center" });
+    return;
+  }
+
+  const pricedServiceCount = services.filter(
+    (service) => service !== "Help me decide",
+  ).length;
+
+  const estimatedPrice = pricedServiceCount
+    ? `₦${pricing[durationValue][pricedServiceCount].toLocaleString("en-NG")}`
+    : "To be discussed";
 
   const dateValue = String(formData.get("date") || "");
   const date = dateValue
@@ -105,6 +154,8 @@ bookingForm?.addEventListener("submit", (event) => {
     `Event date: ${date}`,
     `Venue / city: ${formData.get("venue")}`,
     `Services requested: ${services.join(", ")}`,
+    `Support duration: ${durationValue}`,
+    `Estimated cost: ${estimatedPrice}`,
     `Additional information: ${formData.get("notes") || "None provided"}`,
     "",
     "Please let me know your availability and the next steps. Thank you!",
@@ -128,8 +179,9 @@ let lastScrollY = window.scrollY;
 
 window.addEventListener("scroll", () => {
   const currentScrollY = window.scrollY;
+  // console.log("Current scroll position...", currentScrollY);
 
-  if (currentScrollY > 400 && currentScrollY < 6000) {
+  if (currentScrollY > 350 && currentScrollY < 6700) {
     document.body.classList.add("show-floating-cta");
   } else {
     document.body.classList.remove("show-floating-cta");
@@ -137,3 +189,26 @@ window.addEventListener("scroll", () => {
 
   lastScrollY = currentScrollY;
 });
+
+function updatePrice() {
+  const selectedServices = serviceCheckboxes.filter(
+    (box) => box.checked && box.value !== "Help me decide",
+  );
+
+  const selectedDuration = document.querySelector(
+    'input[name="duration"]:checked',
+  );
+
+  const serviceCount = selectedServices.length;
+
+  if (serviceCount === 0 || !selectedDuration) {
+    priceDisplay.textContent =
+      "Select your services and duration to see your estimated cost.";
+    return;
+  }
+
+  const duration = selectedDuration.value;
+  const price = pricing[duration][serviceCount];
+
+  priceDisplay.textContent = `₦${price.toLocaleString("en-NG")}`;
+}
